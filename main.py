@@ -6,12 +6,24 @@ from kivy.uix.textinput import TextInput
 
 class MyGrid(GridLayout):
     def __init__(self, **kwargs):
-        super()
+        super(MyGrid, self).__init__(**kwargs)
+        self.cols = 2
+        self.add_widget(Label(text=" First Name: "))
+        self.firstName = TextInput(multiline=False)
+        self.add_widget(self.firstName)
+
+        self.add_widget(Label(text="Last Name: "))
+        self.lastName = TextInput(multiline=False)
+        self.add_widget(self.lastName)
+
+        self.add_widget(Label(text="Email: "))
+        self.email = TextInput(multiline=False)
+        self.add_widget(self.email)
 
 class MyApp(App):
     def build(self):
-        return Label(text="Hello! I'm learning Kivy")
-    
+        return MyGrid()
+
 
 
 if __name__ == '__main__':
