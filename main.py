@@ -15,15 +15,15 @@ class MyGrid(GridLayout):
         self.inside.cols = 2
 
 
-        self.inside.add_widget(Label(text=" First Name: "))
+        self.inside.add_widget(Label(text="First Name:"))
         self.firstName = TextInput(multiline=False)
         self.inside.add_widget(self.firstName)
 
-        self.inside.add_widget(Label(text="Last Name: "))
+        self.inside.add_widget(Label(text="Last Name:"))
         self.lastName = TextInput(multiline=False)
         self.inside.add_widget(self.lastName)
 
-        self.inside.add_widget(Label(text="Email: "))
+        self.inside.add_widget(Label(text="Email:"))
         self.email = TextInput(multiline=False)
         self.inside.add_widget(self.email)
 
@@ -34,7 +34,15 @@ class MyGrid(GridLayout):
         self.add_widget(self.submit)
 
     def pressed(self, instance):
-        print("Pressed")
+        first = self.firstName.text
+        last = self.lastName.text
+        email = self.email.text
+
+        print("First Name:", first, "Last Name:", last, "Email:", email)
+        self.firstName.text = ""
+        self.lastName.text = ""
+        self.email.text = ""
+
 
 class MyApp(App):
     def build(self):
